@@ -524,7 +524,7 @@ public final class Minebot extends PircBot implements Runnable {
         if (msg == null) {
             return;
         }
-        Logging.addNewChat(sender, EyeSpy.ircToGame( target ), "IRC", sender + action);
+        Logging.addNewChat(sender, EyeSpy.ircToGame( target ), "IRC", sender + " " + action);
         if (this.plugin.cUseMapAsWhitelist(this.botId) && !this.plugin.cNicknameIsInIrcMap(this.botId, sender)) {
             return;
         }
