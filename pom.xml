@@ -5,7 +5,7 @@
   <artifactId>CraftIRC</artifactId>
   <packaging>jar</packaging>
   <version>3.9.5-SNAPSHOT</version>
-  <name>CraftIRC</name>
+  <name>CraftIRC-3.9.4-1.5.2-ec</name>
   <url>http://www.github.com/CraftIRC/CraftIRC3</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -37,22 +37,36 @@
       <type>jar</type>
       <optional>true</optional>
     </dependency>
+    <dependency>
+      <groupId>uk.co.m4numbers</groupId>
+      <artifactId>EyeSpy</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <type>jar</type>
+      <optional>false</optional>
+    </dependency>
   </dependencies>
 
   <distributionManagement>
-    <repository>
-      <id>kittehReleases</id>
-      <name>Kitteh Releases</name>
-      <url>http://repo.kitteh.org/content/repositories/releases</url>
-    </repository>
-    <snapshotRepository>
-      <id>kittehSnapshots</id>
-      <name>Kitteh Snapshots</name>
-      <url>http://repo.kitteh.org/content/repositories/snapshots</url>
-    </snapshotRepository>
+   <repository>
+     <id>dev-repo</id>
+     <name>dev.escapecraft.com Releases</name>
+     <url>scp://dev.escapecraft.com/var/www/maven</url>
+   </repository>
+   <snapshotRepository>
+     <id>dev-repo-snap</id>
+     <name>dev.escapecraft.com Snapshots</name>
+     <url>scp://dev.escapecraft.com/var/www/maven</url>
+   </snapshotRepository>
   </distributionManagement>
 
   <build>
+    <extensions>
+     <extension>
+       <groupId>org.apache.maven.wagon</groupId>
+       <artifactId>wagon-ssh</artifactId>
+       <version>2.2</version>
+     </extension>
+    </extensions>
     <finalName>${project.artifactId}</finalName>
     <sourceDirectory>src</sourceDirectory>
     <defaultGoal>clean install</defaultGoal>
@@ -69,4 +83,7 @@
       </resource>
     </resources>
   </build>
+  <description>A custom build of CraftIRC3, altered to make it compatible with EyeSpy and to log the actions of the IRC server thereof.
+
+Altered by M4Numbers</description>
 </project>

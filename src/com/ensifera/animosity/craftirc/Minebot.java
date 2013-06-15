@@ -14,6 +14,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Level;
 
+import uk.co.m4numbers.EyeSpy.EyeSpy;
+import uk.co.m4numbers.EyeSpy.Logging.Logging;
+
 import com.ensifera.animosity.craftirc.libs.com.sk89q.util.config.ConfigurationNode;
 import com.ensifera.animosity.craftirc.libs.org.jibble.pircbot.IrcException;
 import com.ensifera.animosity.craftirc.libs.org.jibble.pircbot.PircBot;
@@ -506,6 +509,8 @@ public final class Minebot extends PircBot implements Runnable {
                 msg.doNotColor("username");
                 msg.doNotColor("hostname");
                 msg.post();
+                String ch_name = EyeSpy.ircToGame( channel );
+                Logging.addNewChat(sender, ch_name, "IRC", message);
             }
         } catch (final Exception e) {
             e.printStackTrace();
@@ -520,6 +525,7 @@ public final class Minebot extends PircBot implements Runnable {
         if (msg == null) {
             return;
         }
+        Logging.addNewChat(sender, target, "IRC", action);
         if (this.plugin.cUseMapAsWhitelist(this.botId) && !this.plugin.cNicknameIsInIrcMap(this.botId, sender)) {
             return;
         }
