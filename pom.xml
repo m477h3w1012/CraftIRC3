@@ -5,7 +5,7 @@
   <artifactId>CraftIRC</artifactId>
   <packaging>jar</packaging>
   <version>3.9.5-SNAPSHOT</version>
-  <name>CraftIRC-3.9.4-1.5.2-ec</name>
+  <name>CraftIRC-3.9.5-1.5.2-ec</name>
   <url>http://www.github.com/CraftIRC/CraftIRC3</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
