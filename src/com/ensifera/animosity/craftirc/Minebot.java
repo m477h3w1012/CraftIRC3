@@ -509,8 +509,7 @@ public final class Minebot extends PircBot implements Runnable {
                 msg.doNotColor("username");
                 msg.doNotColor("hostname");
                 msg.post();
-                String ch_name = EyeSpy.ircToGame( channel );
-                Logging.addNewChat(sender, ch_name, "IRC", message);
+                Logging.addNewChat(sender, EyeSpy.ircToGame( channel ), "IRC", message);
             }
         } catch (final Exception e) {
             e.printStackTrace();
@@ -525,7 +524,7 @@ public final class Minebot extends PircBot implements Runnable {
         if (msg == null) {
             return;
         }
-        Logging.addNewChat(sender, target, "IRC", action);
+        Logging.addNewChat(sender, EyeSpy.ircToGame( target ), "IRC", sender + action);
         if (this.plugin.cUseMapAsWhitelist(this.botId) && !this.plugin.cNicknameIsInIrcMap(this.botId, sender)) {
             return;
         }
